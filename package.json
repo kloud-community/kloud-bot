@@ -3,9 +3,13 @@
   "module": "src/index.ts",
   "type": "module",
   "scripts": {
-    "start": "bun run src/index.ts"
+    "start": "bun run src/index.ts",
+    "lint": "biome lint ./src",
+    "fix": "biome format ./src --write && biome lint ./src --apply",
+    "ci": "biome ci ./src"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.4.1",
     "bun-types": "latest"
   },
   "peerDependencies": {
