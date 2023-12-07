@@ -6,11 +6,15 @@
     "start": "bun run src/index.ts",
     "lint": "biome lint ./src",
     "fix": "biome format ./src --write && biome lint ./src --apply",
-    "ci": "biome ci ./src"
+    "ci": "biome ci ./src",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.4.1",
-    "bun-types": "latest"
+    "@types/lint-staged": "^13.2.2",
+    "bun-types": "latest",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.0"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
