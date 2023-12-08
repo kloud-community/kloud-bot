@@ -1,0 +1,13 @@
+name: Bug Report
+description: バグレポートを作成します。
+title: "bug: "
+labels:
+  - "bug"
+
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: 概要
+      description: どのようなバグ（もしくは望まれない動作）が発生していますか？
+      placeholder: バグの概要について
