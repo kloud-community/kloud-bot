@@ -1,0 +1,32 @@
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Should have better way to do this
+      - name: Retrieve packageManager field from package.json
+        id: versions
+        run: echo "BUN_VERSION=$(cat package.json| jq '.packageManager' | sed 's/"bun@\(.\+\)"/\1/')" >> $GITHUB_OUTPUT
+
+      - uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: ${{ steps.versions.outputs.BUN_VERSION }}
+
+      - uses: actions/cache@v3
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-
+
+      - run: bun install
+
+      - run: bun ci
