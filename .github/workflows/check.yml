@@ -20,14 +20,12 @@ jobs:
         with:
           bun-version: ${{ steps.versions.outputs.BUN_VERSION }}
 
-      - name: Retrieve cache path
-        id: cache
-        run: echo "PATH=$BUN_INSTALL/install/cache" >> $GITHUB_OUTPUT
-
       - uses: actions/cache@v3
         with:
-          path: ${{ steps.cache.outputs.PATH }}
-          key: ${{ runner.os }}-${{ hashFiles('**/bun.lockb') }}
+          path: ~/.bun/cache/install
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-
 
       - run: bun install
 
