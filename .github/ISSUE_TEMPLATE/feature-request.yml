@@ -11,3 +11,18 @@ body:
       label: 概要
       description: どのような機能を提案しますか？
       placeholder: 機能の概要について
+
+  - type: textarea
+    id: usecase
+    attributes:
+      label: 想定される使い方
+      description: どのような方法でその機能が呼び出されるのか(コマンドによる実行・特定のイベントに対して起動 etc.)をなるべく詳細に伝えてください。
+      placeholder: 想定される使い方について
+
+  - type: checkboxes
+    id: try_to_implement
+    attributes:
+      label: その他
+      options:
+        - label: 実装に挑戦してみますか？
+          required: false
