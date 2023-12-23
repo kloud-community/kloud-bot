@@ -1,5 +1,5 @@
-import type { AllEvents } from "~/events/type";
 import type { Client } from "discord.js";
+import type { AllEvents } from "~/events/type";
 
 /**
  * ひとつひとつの機能のインターフェースです。
