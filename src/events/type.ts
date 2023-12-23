@@ -1,4 +1,4 @@
-import type { Client, ClientEvents } from "discord.js";
+import type { ClientEvents } from "discord.js";
 
 /**
  * discord.js から受信したイベントです。
