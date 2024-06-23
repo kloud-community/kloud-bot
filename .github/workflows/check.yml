@@ -16,7 +16,7 @@ jobs:
         id: versions
         run: echo "BUN_VERSION=$(cat package.json| jq '.packageManager' | sed 's/"bun@\(.\+\)"/\1/')" >> $GITHUB_OUTPUT
 
-      - uses: oven-sh/setup-bun@v1
+      - uses: oven-sh/setup-bun@v2
         with:
           bun-version: ${{ steps.versions.outputs.BUN_VERSION }}
 
